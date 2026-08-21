@@ -13,19 +13,3 @@ export const saveAndSyncEditor = async ({
 
   await sync();
 };
-
-export const getAiSlashCommandStart = ({
-  caretPosition,
-  insertedText,
-  textBefore,
-}: {
-  caretPosition: number;
-  insertedText: string;
-  textBefore: string;
-}) => {
-  if (insertedText.toLowerCase() !== "i" || !/(?:^|\s)\/a$/i.test(textBefore)) {
-    return null;
-  }
-
-  return caretPosition - 2;
-};
